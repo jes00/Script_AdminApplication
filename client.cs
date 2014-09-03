@@ -1,6 +1,6 @@
-exec("./Application_Forms.GUI");
-exec("./Application_Review.GUI");
-exec("./Application_Denied.GUI");
+exec("./AdminApp_Forms.GUI");
+exec("./AdminApp.GUI");
+exec("./AdminApp_Denied.GUI");
 
 //Thank you
 // clientCmdMessageBoxOk(" Thanks!", "<font:impact:20><just:center>Thank you for your application. It has been sent to the host to be reviewed.", "");
