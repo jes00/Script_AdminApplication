@@ -1,1 +1,1 @@
-Script_Application_Admin
+Script_AdminApplication
