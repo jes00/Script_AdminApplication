@@ -76,23 +76,23 @@ function serverCmdReviewAdminApp(%client, %id, %status, %reason)
 		}
 	}
 
-	else
+	else if(isObject(%target))
 	{
-		if(isObject(%target))
-		{
-			commandToClient(%target, 'AdminApp_Denied', %reason);
-
-			%file = new fileObject();
-			%file.openForWrite($AdminApp::FilePath @ "/" @ %id @ "_message.cs");
-
-			%file.writeLine("");
-
-			%file.close();
-			%file.delete();
-		}
+		commandToClient(%target, 'AdminApp_Denied', %reason);
 	}
 
 	fileDelete(%file);
+
+	if(!isObject(%target))
+	{
+			%file = new fileObject();
+			%file.openForWrite($AdminApp::FilePath @ "/" @ %id @ "_message.cs");
+
+			%file.writeLine(%reason);
+
+			%file.close();
+			%file.delete();
+	}
 }
 
 package AdminApps
@@ -111,6 +111,30 @@ package AdminApps
 			else if(%client.isAdmin)
 			{
 				commandToClient(%target, 'AdminApp_Accepted', 1);
+			}
+
+			else
+			{
+				%file = new fileObject();
+				%file.openForRead(%file);
+
+				while(!%file.isEOF())
+				{
+					if(%reason $= "")
+					{
+						%reason = %file.readLine();
+					}
+
+					else
+					{
+						%reason = %reason NL %file.readLine();
+					}
+				}
+
+				%file.close();
+				%file.delete();
+
+				commandToClient(%target, 'AdminApp_Denied', %reason);
 			}
 
 			fileDelete(%file);
