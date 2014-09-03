@@ -110,7 +110,7 @@ package AdminApps
 
 			else if(%client.isAdmin)
 			{
-				
+				commandToClient(%target, 'AdminApp_Accepted', 1);
 			}
 
 			fileDelete(%file);
