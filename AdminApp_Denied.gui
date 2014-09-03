@@ -1,0 +1,76 @@
+//--- OBJECT WRITE BEGIN ---
+new GuiControl(AdminApp_Denied) {
+   profile = "GuiDefaultProfile";
+   horizSizing = "width";
+   vertSizing = "height";
+   position = "0 0";
+   extent = "640 480";
+   minExtent = "8 8";
+   enabled = "1";
+   visible = "1";
+   clipToParent = "1";
+
+   new GuiWindowCtrl() {
+      profile = "BlockWindowProfile";
+      horizSizing = "center";
+      vertSizing = "center";
+      position = "162 162";
+      extent = "315 232";
+      minExtent = "48 92";
+      enabled = "1";
+      visible = "1";
+      clipToParent = "1";
+      text = " Denied!";
+      maxLength = "255";
+      resizeWidth = "0";
+      resizeHeight = "0";
+      canMove = "1";
+      canClose = "0";
+      canMinimize = "0";
+      canMaximize = "0";
+      minSize = "50 50";
+
+      new GuiMLTextCtrl(AdminAppDenied_Body) {
+         profile = "GuiDefaultProfile";
+         horizSizing = "center";
+         vertSizing = "bottom";
+         position = "0 30";
+         extent = "315 60";
+         minExtent = "8 8";
+         enabled = "1";
+         visible = "1";
+         clipToParent = "1";
+         lineSpacing = "2";
+         allowColorChars = "0";
+         maxChars = "-1";
+         text = "<font:Impact:20><just:center>Your admin application has been<br><color:FF0000>denied<color:000000>!<br>Reason:";
+         maxBitmapHeight = "10";
+         selectable = "0";
+         autoResize = "1";
+      };
+      new GuiBitmapButtonCtrl() {
+         profile = "BlockButtonProfile";
+         horizSizing = "center";
+         vertSizing = "top";
+         position = "112 180";
+         extent = "91 38";
+         minExtent = "8 2";
+         enabled = "1";
+         visible = "1";
+         clipToParent = "1";
+         command = "canvas.popDialog(AdminApp_Denied);";
+         accelerator = "enter";
+         text = "OK";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         bitmap = "base/client/ui/button2";
+         lockAspectRatio = "0";
+         alignLeft = "0";
+         alignTop = "0";
+         overflowImage = "0";
+         mKeepCached = "0";
+         mColor = "255 255 255 255";
+      };
+   };
+};
+//--- OBJECT WRITE END ---
