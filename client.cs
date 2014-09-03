@@ -27,7 +27,12 @@ function clientCmdAdminApp_Accepted(%status)
 
 function clientCmdAdminApp_Denied(%reason)
 {
-	%text = "<font:Impact:20><just:center>Your admin application has been<br><color:FF0000>denied<color:000000>!";
+	if(%reason $= "")
+	{
+		clientCmdMessageBoxOk(" Denied!", "<font:Impact:20><just:center>Your admin application has been<br><color:FF0000>denied<color:000000>!");
 
-	AdminAppDenied_Body.setText(%text);
+		return;
+	}
+
+	AdminAppDenied_Reason.setText("<font:Impact:20><just:center><color:FF0000>Reason<color:000000>:" NL %reason);
 }
