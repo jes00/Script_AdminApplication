@@ -1,0 +1,7 @@
+Title: Application Admin
+Author: Furling
+
+Credit:
+Furling- GUI/Tweak Script [Lead Project]
+[GSF] Ghost - Tweak GUI/Script [client/server communication] 
+Jes00- Tweak GUI/Script
